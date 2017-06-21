@@ -20,6 +20,9 @@ namespace minimax_tictactoe
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// The constructor
+        /// </summary>
         public MainWindow()
         {
             // comment just because

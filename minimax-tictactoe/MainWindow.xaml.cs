@@ -25,6 +25,7 @@ namespace minimax_tictactoe
         /// </summary>
         public MainWindow()
         {
+            //Omer's comment.
             // comment just because
             InitializeComponent();
         }

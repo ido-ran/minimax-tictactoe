@@ -19,5 +19,13 @@ namespace minimax_tictactoe.Test
             int result = 1 + 3;
             Assert.AreEqual(19, result);
         }
+        [TestMethod]
+        public void WhenAnamyCanWinAndItsAlgTurn()
+        {
+            int result = 1 + Board.HaveATreat(Board.GetBoardSituation());
+            Assert.AreEqual(3, result);
+
+
+        }
     }
 }

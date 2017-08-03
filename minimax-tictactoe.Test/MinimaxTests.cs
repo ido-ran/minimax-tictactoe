@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Minimax.Tictactoe;
 
 namespace minimax_tictactoe.Test
 {
@@ -7,17 +7,44 @@ namespace minimax_tictactoe.Test
     public class MinimaxTests
     {
         [TestMethod]
-        public void WhenOnlyOneCellIsOpenAlgChooseThatCell()
+        public void WhenOnlyLowerLeftCellIsOpenAlgChooseThatCell()
         {
-            int result = 1 + 2;
-            Assert.AreEqual(3, result);
+            Board b = BoardBuilder.FromString(
+                "XOX",
+                "OXO",
+                "OX-");
+            MiniMaxTictactoeAlg alg = new MiniMaxTictactoeAlg();
+            PossibleMoves possibleMoves = alg.PossibleMoves(b, Player.X);
+            Assert.AreEqual(1, possibleMoves.Count);
+            Assert.AreEqual(8, possibleMoves[0].CellIndex);
         }
 
         [TestMethod]
-        public void TestThatFail()
+        public void WhenOnlyMiddleCellIsOpenAlgChooseThatCell()
         {
-            int result = 1 + 3;
-            Assert.AreEqual(19, result);
+            Board b = BoardBuilder.FromString(
+                "XOX",
+                "O-O",
+                "OXO");
+            MiniMaxTictactoeAlg alg = new MiniMaxTictactoeAlg();
+            PossibleMoves possibleMoves = alg.PossibleMoves(b, Player.X);
+            Assert.AreEqual(1, possibleMoves.Count);
+            Assert.AreEqual(4, possibleMoves[0].CellIndex);
+        }
+
+        [TestMethod]
+        public void WinningMoveHasHigherScoreThanTie()
+        {
+            Board b = BoardBuilder.FromString(
+                "XOO",
+                "XXO",
+                "-X-");
+            MiniMaxTictactoeAlg alg = new MiniMaxTictactoeAlg();
+            PossibleMoves possibleMoves = alg.PossibleMoves(b, Player.O);
+            Assert.AreEqual(2, possibleMoves.Count);
+            Assert.AreEqual(8, possibleMoves[0].CellIndex);
+            Assert.AreEqual(6, possibleMoves[1].CellIndex);
+            Assert.IsTrue(possibleMoves[0].Score > possibleMoves[1].Score, "Winning move should have higher score than tie move");
         }
     }
 }

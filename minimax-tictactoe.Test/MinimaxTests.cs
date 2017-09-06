@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Minimax.Tictactoe;
+using System;
+using System.Collections.Generic;
 
 namespace minimax_tictactoe.Test
 {
@@ -16,7 +18,7 @@ namespace minimax_tictactoe.Test
             MiniMaxTictactoeAlg alg = new MiniMaxTictactoeAlg();
             PossibleMoves possibleMoves = alg.PossibleMoves(b, Player.X);
             Assert.AreEqual(1, possibleMoves.Count);
-            Assert.AreEqual(8, possibleMoves[0].CellIndex);
+            Assert.AreEqual(Cells.BottomRight, possibleMoves[0].CellIndex);
         }
 
         [TestMethod]
@@ -29,7 +31,7 @@ namespace minimax_tictactoe.Test
             MiniMaxTictactoeAlg alg = new MiniMaxTictactoeAlg();
             PossibleMoves possibleMoves = alg.PossibleMoves(b, Player.X);
             Assert.AreEqual(1, possibleMoves.Count);
-            Assert.AreEqual(4, possibleMoves[0].CellIndex);
+            Assert.AreEqual(Cells.CenterMiddle, possibleMoves[0].CellIndex);
         }
 
         [TestMethod]
@@ -42,8 +44,8 @@ namespace minimax_tictactoe.Test
             MiniMaxTictactoeAlg alg = new MiniMaxTictactoeAlg();
             PossibleMoves possibleMoves = alg.PossibleMoves(b, Player.O);
             Assert.AreEqual(2, possibleMoves.Count);
-            Assert.AreEqual(8, possibleMoves[0].CellIndex);
-            Assert.AreEqual(6, possibleMoves[1].CellIndex);
+            Assert.AreEqual(Cells.BottomRight, possibleMoves[0].CellIndex);
+            Assert.AreEqual(Cells.BottomLeft, possibleMoves[1].CellIndex);
             Assert.IsTrue(possibleMoves[0].Score > possibleMoves[1].Score, "Winning move should have higher score than tie move");
         }
     }

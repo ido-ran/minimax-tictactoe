@@ -13,16 +13,8 @@ namespace Minimax.Tictactoe
     {
         /// <summary>
         /// Zero based cell index.
-        /// 
-        /// -------------
-        /// | 0 | 1 | 2 |
-        /// -------------
-        /// | 3 | 4 | 5 |
-        /// -------------
-        /// | 6 | 7 | 8 |
-        /// -------------
         /// </summary>
-        public int CellIndex { get; set; }
+        public Cells CellIndex { get; set; }
 
         /// <summary>
         /// The score of the move. Higher is better.

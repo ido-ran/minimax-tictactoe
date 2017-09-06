@@ -20,7 +20,7 @@ namespace Minimax.Tictactoe
         /// <returns></returns>
         public static Board FromString(string v1, string v2, string v3)
         {
-            throw new NotImplementedException();
+            return new Board();
         }
     }
 }

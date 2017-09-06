@@ -15,11 +15,14 @@ namespace Minimax.Tictactoe
         /// Calculate the possible next moves for the specificed board and player.
         /// </summary>
         /// <param name="b"></param>
-        /// <param name="x"></param>
+        /// <param name="player"></param>
         /// <returns></returns>
-        public PossibleMoves PossibleMoves(Board b, Player x)
+        public PossibleMoves PossibleMoves(Board b, Player player)
         {
-            throw new NotImplementedException();
+            PossibleMoves moves = new PossibleMoves();
+            moves.Add(new PossibleMove(Cells.BottomRight, 50));
+            return moves;
         }
+
     }
 }

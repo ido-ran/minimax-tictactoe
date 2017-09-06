@@ -11,6 +11,13 @@ namespace Minimax.Tictactoe
     /// </summary>
     public class PossibleMove
     {
+
+        public PossibleMove(Cells cell, int score)
+        {
+            this.CellIndex = cell;
+            this.Score = score;
+        }
+
         /// <summary>
         /// Zero based cell index.
         /// </summary>

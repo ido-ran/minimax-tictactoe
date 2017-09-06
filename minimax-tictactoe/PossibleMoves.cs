@@ -11,10 +11,18 @@ namespace Minimax.Tictactoe
     /// </summary>
     public class PossibleMoves
     {
+        private List<PossibleMove> moves = new List<PossibleMove>();
+
         /// <summary>
         /// Get the number of possible moves.
         /// </summary>
-        public int Count { get; set; }
+        public int Count
+        {
+            get
+            {
+                return moves.Count;
+            }
+        }
 
         /// <summary>
         /// Get a specific possible move.
@@ -23,7 +31,12 @@ namespace Minimax.Tictactoe
         /// <returns></returns>
         public PossibleMove this[int index]
         {
-            get { return null; }
+            get { return moves[index]; }
+        }
+
+        internal void Add(PossibleMove possibleMove)
+        {
+            moves.Add(possibleMove);
         }
     }
 }

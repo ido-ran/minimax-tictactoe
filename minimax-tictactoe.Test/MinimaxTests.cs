@@ -12,8 +12,8 @@ namespace minimax_tictactoe.Test
         public void WhenOnlyLowerLeftCellIsOpenAlgChooseThatCell()
         {
             Board b = BoardBuilder.FromString(
-                "XOX",
-                "OXO",
+                "XOX" +
+                "OXO" +
                 "OX-");
             MiniMaxTictactoeAlg alg = new MiniMaxTictactoeAlg();
             PossibleMoves possibleMoves = alg.PossibleMoves(b, Player.X);
@@ -25,8 +25,8 @@ namespace minimax_tictactoe.Test
         public void WhenOnlyMiddleCellIsOpenAlgChooseThatCell()
         {
             Board b = BoardBuilder.FromString(
-                "XOX",
-                "O-O",
+                "XOX" +
+                "O-O" +
                 "OXO");
             MiniMaxTictactoeAlg alg = new MiniMaxTictactoeAlg();
             PossibleMoves possibleMoves = alg.PossibleMoves(b, Player.X);
@@ -38,8 +38,8 @@ namespace minimax_tictactoe.Test
         public void WinningMoveHasHigherScoreThanTie()
         {
             Board b = BoardBuilder.FromString(
-                "XOO",
-                "XXO",
+                "XOO" +
+                "XXO" +
                 "-X-");
             MiniMaxTictactoeAlg alg = new MiniMaxTictactoeAlg();
             PossibleMoves possibleMoves = alg.PossibleMoves(b, Player.O);

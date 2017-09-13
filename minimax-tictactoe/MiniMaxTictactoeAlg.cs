@@ -20,7 +20,14 @@ namespace Minimax.Tictactoe
         public PossibleMoves PossibleMoves(Board b, Player player)
         {
             PossibleMoves moves = new PossibleMoves();
-            moves.Add(new PossibleMove(Cells.BottomRight, 50));
+
+            // find all empty cells
+            foreach (Cells cell in b.EmptyCells())
+            {
+                // create possible move from each one
+                moves.Add(new PossibleMove(cell, 1));
+            }
+
             return moves;
         }
 

@@ -14,13 +14,35 @@ namespace Minimax.Tictactoe
         /// <summary>
         /// Building Board instance from three strings represents one row each.
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <param name="v3"></param>
+        /// <param name="boardString"></param>
         /// <returns></returns>
-        public static Board FromString(string v1, string v2, string v3)
+        public static Board FromString(string boardString)
         {
-            return new Board();
+            Board board = new Board();
+
+            for (int index = 0; index < boardString.Length; index++)
+            {
+                CellContent content;
+                char c = boardString[index];
+                switch (c)
+                {
+                    case 'X':
+                        content = CellContent.X;
+                        break;
+
+                    case 'O':
+                        content = CellContent.O;
+                        break;
+
+                    default:
+                        content = CellContent.Empty;
+                        break;
+                }
+
+                board.Set((Cells)index, content);
+            }
+
+            return board;
         }
     }
 }

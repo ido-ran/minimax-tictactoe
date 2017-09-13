@@ -11,5 +11,31 @@ namespace Minimax.Tictactoe
     /// </summary>
     public class Board
     {
+        private CellContent[] cells;
+
+        public Board()
+        {
+            cells = new CellContent[9];
+        }
+
+        public void Set(Cells cell, CellContent content)
+        {
+            cells[(int)cell] = content;
+        }
+
+        public IEnumerable<Cells> EmptyCells()
+        {
+            List<Cells> emptyCells = new List<Cells>();
+
+            for (int index = 0; index < cells.Length; index++)
+            {
+                if (cells[index] == CellContent.Empty)
+                {
+                    emptyCells.Add((Cells)index);
+                }
+            }
+
+            return emptyCells;
+        }
     }
 }

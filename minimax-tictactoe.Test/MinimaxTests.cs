@@ -44,8 +44,8 @@ namespace minimax_tictactoe.Test
             MiniMaxTictactoeAlg alg = new MiniMaxTictactoeAlg();
             PossibleMoves possibleMoves = alg.PossibleMoves(b, Player.O);
             Assert.AreEqual(2, possibleMoves.Count);
-            Assert.AreEqual(Cells.BottomRight, possibleMoves[0].CellIndex);
-            Assert.AreEqual(Cells.BottomLeft, possibleMoves[1].CellIndex);
+            Assert.AreEqual(Cells.BottomLeft, possibleMoves[0].CellIndex);
+            Assert.AreEqual(Cells.BottomRight, possibleMoves[1].CellIndex);
             Assert.IsTrue(possibleMoves[0].Score > possibleMoves[1].Score, "Winning move should have higher score than tie move");
         }
     }

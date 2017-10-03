@@ -37,5 +37,29 @@ namespace Minimax.Tictactoe
 
             return emptyCells;
         }
+
+        private IEnumerable<Cells> PlayerCellS(CellContent playerType)
+        {
+            List<Cells> cells = new List<Cells>();
+            for (int index = 0; index < this.cells.Length; index++)
+            {
+                if (this.cells[index] == playerType)
+                {
+                    cells.Add((Cells)index);
+                }
+            }
+            return cells;
+        }
+
+        public IEnumerable<Cells> XCells()
+        {
+            return (PlayerCellS(CellContent.X));
+        }
+
+        public IEnumerable<Cells> OCells()
+        {
+            return (PlayerCellS(CellContent.O));
+        }
+
     }
 }

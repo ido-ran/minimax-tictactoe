@@ -9,6 +9,8 @@ namespace Minimax.Tictactoe
     /// <summary>
     /// Represents a board to TicTacToe game.
     /// </summary>
+    /// 
+
     public class Board
     {
         private CellContent[] cells;
@@ -61,5 +63,35 @@ namespace Minimax.Tictactoe
             return (PlayerCellS(CellContent.O));
         }
 
+        public bool IsTheLastMoveHaveOne(Cells theLastMove)
+        {
+            bool haveWon = false;
+
+            DiractionRecord[] diractionMatrix = new[]
+            {
+                new DiractionRecord() { row1 =1,col1=1,row2=-1,col2=-1,checkDiagonal =true},
+                new DiractionRecord() { row1 =1,col1=-1,row2=-1,col2=1,checkDiagonal =true},
+                new DiractionRecord() { row1 =0,col1=1,row2=0,col2=-1,checkDiagonal =false},
+                new DiractionRecord() { row1 =1,col1=0,row2=-1,col2=0,checkDiagonal =false},
+            };
+
+            int row = (int)theLastMove / 3;
+            int col = (int)theLastMove % 3;
+            foreach (var dir in diractionMatrix)
+            {
+                
+            }
+
+            return haveWon;
+        }
+
+        private class DiractionRecord
+        {
+            public int row1,row2,col1,col2;
+            public bool checkDiagonal;
+
+        }
+
     }
+     
 }

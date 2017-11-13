@@ -63,9 +63,8 @@ namespace Minimax.Tictactoe
             return (PlayerCellS(CellContent.O));
         }
 
-        public bool IsTheLastMoveHaveOne(Cells theLastMove)
+        public bool IsTheLastMoveHaveWon(Cells theLastMove)
         {
-            bool haveWon = false;
 
             DiractionRecord[] diractionMatrix = new[]
             {
@@ -79,19 +78,39 @@ namespace Minimax.Tictactoe
             int col = (int)theLastMove % 3;
             foreach (var dir in diractionMatrix)
             {
-                
+                if (!dir.checkDiagonal || (dir.checkDiagonal && (int)theLastMove % 2 == 0))
+                {
+                    int cell1Row = (row + dir.row1) % 3;
+                    int cell1Col = (col + dir.col1) % 3;
+                    Cells cell1 = (Cells)(cell1Row * 3 + cell1Col);
+
+                    int cell2Row = (row + dir.row2) % 3;
+                    int cell2Col = (col + dir.col2) % 3;
+                    Cells cell2 = (Cells)(cell2Row * 3 + cell2Col);
+
+                    CellContent LastContent = cells[(int)theLastMove];
+                    CellContent cell1Content = cells[(int)cell1];
+                    CellContent cell2Content = cells[(int)cell2];
+
+                    if(LastContent == cell1Content && LastContent == cell2Content)
+                    {
+                        return true;
+                    }
+
+                }
+
             }
 
-            return haveWon;
+            return false;
         }
 
         private class DiractionRecord
         {
-            public int row1,row2,col1,col2;
+            public int row1, row2, col1, col2;
             public bool checkDiagonal;
 
         }
 
     }
-     
+
 }

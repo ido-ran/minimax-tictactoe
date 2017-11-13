@@ -27,5 +27,7 @@ namespace Minimax.Tictactoe
         /// The score of the move. Higher is better.
         /// </summary>
         public int Score { get; set; }
+        
+
     }
 }

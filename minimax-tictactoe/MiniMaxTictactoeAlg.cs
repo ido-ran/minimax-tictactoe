@@ -27,6 +27,7 @@ namespace Minimax.Tictactoe
                 // create possible move from each one
                 moves.Add(new PossibleMove(cell, 1));
             }
+            
 
             return moves;
         }

@@ -25,9 +25,23 @@ namespace Minimax.Tictactoe
             foreach (Cells cell in b.EmptyCells())
             {
                 // create possible move from each one
-                moves.Add(new PossibleMove(cell, 1));
+                Board nextBoard = new Board();
+                nextBoard = b;
+                nextBoard.Set(cell, player == Player.O ? CellContent.O : CellContent.X);
+                if (nextBoard.IsTheLastMoveHaveWon(cell))
+                {
+                    moves.Add(new PossibleMove(cell, 90));
+                }
+                else
+                {
+                    moves.Add(new PossibleMove(cell, 1));
+                }
+
+
+
             }
-            
+
+
 
             return moves;
         }

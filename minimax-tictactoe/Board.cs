@@ -78,8 +78,16 @@ namespace Minimax.Tictactoe
             int col = (int)theLastMove % 3;
             foreach (var dir in diractionMatrix)
             {
-                if (!dir.checkDiagonal || (dir.checkDiagonal && (int)theLastMove % 2 == 0))
+                if (!dir.checkDiagonal || dir.checkDiagonal)
                 {
+                    if (dir.Contains(theLastMove) == "left")
+                    {
+
+                    }
+                    else if (dir.Contains(theLastMove) == "right")
+                    {
+
+                    }
                     int cell1Row = (row + dir.row1) % 3;
                     int cell1Col = (col + dir.col1) % 3;
                     Cells cell1 = (Cells)(cell1Row * 3 + cell1Col);
@@ -108,6 +116,27 @@ namespace Minimax.Tictactoe
         {
             public int row1, row2, col1, col2;
             public bool checkDiagonal;
+
+            public string Contains(Cells cell)
+            {
+                if((int)cell == 4)
+                {
+                    return "left and right";
+                }
+                if ((int)cell == 2 || (int)cell == 6)
+                {
+                    return "left";
+                }
+                else if((int)cell == 0 || (int)cell == 8)
+                {
+                    return "right";
+                }
+                else
+                {
+                    return "not Diagonal";
+                }
+            }
+
 
         }
 
